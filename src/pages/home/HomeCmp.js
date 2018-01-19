@@ -10,11 +10,6 @@ class HomeCmp extends Component {
 
     constructor(props) {
         super(props);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.handlePropertyChange= this.handlePropertyChange.bind(this);
-        this.submitAdditionalSkill= this.submitAdditionalSkill.bind(this);
-        this.onAdditionalSkillClick = this.onAdditionalSkillClick.bind(this);
-        this.handleAdditionalSkillChange = this.handleAdditionalSkillChange.bind(this);
         this.state = {addSkill :false, additionalSkill: ''};
     }
 
@@ -40,28 +35,28 @@ class HomeCmp extends Component {
       }
     }
     
-    handleFormSubmit(values) {
+    handleFormSubmit = (values) => {
       const {formData} = this.props;
         console.log(formData);
     }    
 
-    handleAdditionalSkillChange(event) {
+    handleAdditionalSkillChange = (event) =>{
         const value = event.target.value;
         this.setState({additionalSkill: value});
     }
 
-    onAdditionalSkillClick(event) {
+    onAdditionalSkillClick = (event) => {
         this.setState({addSkill: !this.state.addSkill})
     }
 
-    submitAdditionalSkill(event) {
+    submitAdditionalSkill = (event)=> {
       const {addNewSKill} = this.props;
 
       addNewSKill(this.state.additionalSkill);
       this.setState({addSkill: !this.state.addSkill, additionalSkill: ''})
     }
 
-    handlePropertyChange(prop, value, fromEvent) {
+    handlePropertyChange =(prop, value, fromEvent) =>{
       let newValue = value;
       if(fromEvent){
         const target = value.target;
